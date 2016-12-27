@@ -10,6 +10,8 @@ var moment = require('moment')
 var fs = require("fs")
 var html = (fs.readFileSync('timestamp.html').toString())
 
+app.set('port', (process.env.PORT || 5000));
+
   app.get('/string/:Natural/',function (req, res) {
     var data = req.params
     var ncheck = data.Natural
@@ -36,6 +38,6 @@ var html = (fs.readFileSync('timestamp.html').toString())
      res.send(html)
 })
 
-app.listen(5000, function () {
-  console.log("Timestamp app running on port 5000...")
-})
+  app.listen(process.env.PORT, '0.0.0.0', function(err) {
+  console.log("Started listening on %s", app.url);
+});
