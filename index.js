@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000));
     var ncheck = data.Natural
     var unix = Date.parse(ncheck).toString()
     if(moment(ncheck, "MMMM D, YYYY", true).isValid()==false){
-      res.send('{"Natural": '+"Null"+'"'+","+' "Unix": '+"Null"+'"}')
+      res.send('{"Natural": '+'"Null"'+","+' "Unix": '+'"Null"'+'}')
     }
     else
     res.send('{"Natural": '+'"'+data.Natural+'"'+","+' "Unix": '+'"'+unix+'"}')
@@ -28,7 +28,7 @@ app.set('port', (process.env.PORT || 5000));
     var unix = data.Unix/1000;
     var string = moment.unix(unix).format("LL")
     if(isNaN(data.Unix)==true){
-      res.send('{"Natural": '+"Null"+'"'+","+' "Unix": '+"Null"+'"}')
+      res.send('{"Natural": '+'"Null"'+","+' "Unix": '+'"Null"'+'}')
     }
     else
     res.send('{"Natural": '+'"'+string+'"'+","+' "Unix": '+'"'+data.Unix+'"}')
